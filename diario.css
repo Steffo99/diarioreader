@@ -10,7 +10,8 @@ body {
 
 .quote-author {
     display: inline-block;
-    width: 15%;
+    box-sizing: border-box;
+    width: 10%;
 }
 
 .quote-author::after {
@@ -23,11 +24,19 @@ body {
 
 .quote-time {
     display: inline-block;
-    width: 15%;
+    box-sizing: border-box;
+    width: 10%;
 }
 
 .quote-text {
     display: inline-block;
-    max-width: 70%;
     overflow-wrap: break-word;
+    box-sizing: border-box;
+    width: 75%;
+}
+
+.quote-permalink {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 5%;
 }

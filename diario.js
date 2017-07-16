@@ -11,6 +11,12 @@ function renderLine(line, entry)
     var timestamp = array[1];
     var text = array[2];
 
+    var numberelement = document.createElement("a");
+    lineelement.appendChild(numberelement);
+    numberelement.className = "quote-permalink";
+    numberelement.textContent = entry;
+    numberelement.setAttribute("href", "#Q" + entry);
+
     var time = new Date(new Number(timestamp) * 1000);
     var timeelement = document.createElement("span");
     lineelement.appendChild(timeelement);
