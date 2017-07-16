@@ -11,7 +11,7 @@ function renderLine(line, entry)
     var timestamp = array[1];
     var text = array[2];
 
-    var time = new Date(new Number(timestamp));
+    var time = new Date(new Number(timestamp) * 1000);
     var timeelement = document.createElement("span");
     lineelement.appendChild(timeelement);
     timeelement.className = "quote-time";
