@@ -1,0 +1,33 @@
+body {
+    background-color: #ff7f00;
+    color: #000000;
+    font-family: "Ubuntu", sans-serif;
+}
+
+.quote-line {
+    margin: 10px;
+}
+
+.quote-author {
+    display: inline-block;
+    width: 15%;
+}
+
+.quote-author::after {
+    content: ":";
+}
+
+.quote-anonymous::before {
+    content: "Anonimo";
+}
+
+.quote-time {
+    display: inline-block;
+    width: 15%;
+}
+
+.quote-text {
+    display: inline-block;
+    max-width: 70%;
+    overflow-wrap: break-word;
+}
