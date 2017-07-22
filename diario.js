@@ -6,10 +6,9 @@ function renderLine(line, entry)
     lineelement.id = "Q" + entry;
     lineelement.className = "quote-line";
     
-    var array = line.split("|");
-    var author = array[0];
-    var timestamp = array[1];
-    var text = array[2];
+    var author = line["author"];
+    var timestamp = line["timestamp"];
+    var text = line["text"];
 
     var numberelement = document.createElement("a");
     lineelement.appendChild(numberelement);
@@ -23,7 +22,7 @@ function renderLine(line, entry)
     timeelement.className = "quote-time";
     timeelement.textContent = time.toLocaleDateString() + " " + time.toLocaleTimeString()
 
-    if(author === "")
+    if(author === "" || author == undefined)
     {
         var authorelement = document.createElement("span");
         lineelement.appendChild(authorelement);
@@ -45,7 +44,7 @@ function renderLine(line, entry)
 }
 
 function renderDiario(text) {
-    var lines = text.split("\n");
+    var lines = JSON.parse(text)
     lines.forEach(renderLine);
 }
 
@@ -63,6 +62,6 @@ window.onload = function() {
         }
         renderDiario(request.responseText);
     }
-    request.open("GET", "https://royal.steffo.eu/diario/diario.txt")
+    request.open("GET", "https://royal.steffo.eu/diario/diario.json")
     request.send(null)
 }
