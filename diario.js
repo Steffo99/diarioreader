@@ -6,7 +6,7 @@ function renderLine(line, entry)
     lineelement.id = "Q" + entry;
     lineelement.className = "quote-line";
     
-    var author = line["author"];
+    var author = line["sender"];
     var timestamp = line["timestamp"];
     var text = line["text"];
 
@@ -34,7 +34,7 @@ function renderLine(line, entry)
         lineelement.appendChild(authorelement);
         authorelement.className = "quote-author";
         authorelement.textContent = author;
-        authorelement.setAttribute("href", "https://t.me/Steffo");
+        authorelement.setAttribute("href", "https://t.me/" + line["sender"].replace("@", ""));
     }
 
     var textelement = document.createElement("span");
@@ -57,7 +57,7 @@ window.onload = function() {
         }
         if(request.status !== 200)
         {
-            //TODO: Error
+            alert("C'è stato un errore nel caricamento del diario. Sorry!")
             return;
         }
         renderDiario(request.responseText);
